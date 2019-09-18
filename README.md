@@ -1,15 +1,15 @@
-## bAmazon storeFront CLI App
+# bAmazon storeFront CLI App
 
-# Description
+### Description:
 
 In bAmazon you'll experience an Amazon-like storefront, it will accept orders and deplete stock from inventory. bAmazon can also track product sales across departments and provide a summary of the highest-grossing departments in the store. 
 
-# Developed by: 
+### bAmazon was developed by: 
 
 - Jason Ostergren - MERN Stack Developer
 
 
-# Included technologies: 
+### bAmazon includes these technologies: 
 
 - Node.js 
 - JavaScript
