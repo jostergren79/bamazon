@@ -29,11 +29,12 @@ connection.connect(function (err) {
 // displays the items for sale when the store loads
 
 function displayInventory() {
-    console.log("Here's our store inventory for you to peruse!\n")
-    const query = connection.query("SELECT * FROM products", function (err, res) {
+    console.log("Here's our store inventory for you to peruse!\n");
+    connection.query("SELECT * FROM products", function (err, res) {
         if (err) throw err;
         console.log(res);
         connection.end();
+        chooseProduct()
     });
 }
 
@@ -45,26 +46,43 @@ function chooseProduct() {
         if (err) throw err;
         console.log(res);
         connection.end();
+        chooseQuantity ()
     });
 
 }
 
-// queries the user for the quentity
+// queries the user for the quantity of the id they'd like to purchase
 
 function chooseQuantity () {
     console.log("Please enter the quantity of the item you'd like to purchase!\n");
-    });
-
+   
 }
 
-}
-
-// checks inventory
+// checks inventory for availability 
 
 function checkInventory() {
+    console.log("Checking inventory to see if we have enough of your item in stock!\n");
+ 
     
 }
 
-// updates inventory
+// updates product
 
-function updateInventory()
+function updateProduct() {
+    console.log("Updating product quantities...\n");
+    var query = connection.query(
+      "UPDATE products SET ? WHERE ?",
+      [
+        {
+          quantity: 100
+        },
+        {
+          flavor: "Rocky Road"
+        }
+      ],
+      function(err, res) {
+        if (err) throw err;
+        console.log(res.affectedRows + " products updated!\n");
+        deleteProduct();
+      }
+    );
