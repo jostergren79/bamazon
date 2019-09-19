@@ -15,6 +15,15 @@ In bAmazon you'll experience an Amazon-like storefront, it will accept orders an
 - JavaScript
 - MySQL
 
+#### Here's a link to bAmazons GitHub repository:
+
+- https://github.com/jostergren79/bamazon
+
+#### Here's link to a demonstration of the bAmazon's functionality
+
+- 
+
+
 
 
 
