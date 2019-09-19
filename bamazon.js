@@ -34,18 +34,16 @@ function displayInventory() {
 // prompting the user for product id
 
 function chooseProduct(inventory) {
-    inquirer.prompt([
-            {
-                type: "input",
-                name: "name",
-                message: "What is the product id that you'd like to purchase?"
-            }
-        ])
+    inquirer.prompt([{
+            type: "input",
+            name: "name",
+            message: "What is the product id that you'd like to purchase?"
+        }])
         .then(function (val) {
             const choiceid = parseInt(val.name)
             const item = checkInventory(choiceid, inventory)
             if (item) {
-                promptforquantity(item) 
+                promptforquantity(item)
             } else {
                 console.log("I'm sorry we are out of this item!")
                 displayInventory()
@@ -67,47 +65,38 @@ function checkInventory(choiceid, inventory) {
 // prompting the user for a quantity 
 
 function promptforquantity(item) {
-    inquirer.prompt([
-
-            {
-                type: "input",
-                name: "name",
-                message: "What is the quantity that you'd like to purchase?"
-            }
-        ])
-
+    inquirer.prompt([{
+            type: "input",
+            name: "name",
+            message: "What is the quantity that you'd like to purchase?"
+        }])
         .then(function (val) {
             const quantity = parseInt(val.name)
-            console.log("item", item)
+            console.table("The item you have chosen is", item.product_name)
             if (quantity > item.instock) {
                 console.log("We do not have enough in stock")
                 displayInventory()
-
-
             } else {
+                const total = quantity * item.price
+                console.log("The total cost to you in dollars is $" +  total + " thank you for shopping with us!")
+
                 finalizePurchase(item, quantity)
-
-
             }
-
-
         })
-
 }
 
-// finalizes purchase confirms with customer and updates inventory
+// confirms purchase with customer and updates inventory
 
 function finalizePurchase(item, quantity) {
     connection.query("UPDATE products SET instock = instock - ? WHERE id = ?",
         [quantity, item.id],
         function (err, res) {
             if (err) throw err;
-            console.log("Your purchase was successful!");
-            displayInventory()
 
+            displayInventory()
         });
 
 }
 
 
-// need to update customer with total price as part of the last steps
+
