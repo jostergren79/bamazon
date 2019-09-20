@@ -19,9 +19,9 @@ In bAmazon you'll experience an Amazon-like storefront, it will accept orders an
 
 - https://github.com/jostergren79/bamazon
 
-#### Here's link to a demonstration of the bAmazon's functionality
+#### Here's a link to a video demonstration of bAmazon's functionality
 
-- 
+- https://www.youtube.com/watch?v=xcEzUvlV9FQ&feature=youtu.be
 
 
 
