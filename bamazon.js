@@ -9,7 +9,7 @@ require("console.table")
 
 const connection = mysql.createConnection({
     host: "localhost",
-    port: 3306,
+    port: 8889,
     user: "root",
     password: "root",
     database: "bamazonDB"
@@ -79,6 +79,7 @@ function promptforquantity(item) {
             } else {
                 const total = quantity * item.price
                 console.log("The total cost to you in dollars is $" +  total + " thank you for shopping with us!")
+                console.log("-------------------------------------------------------------------------")
 
                 finalizePurchase(item, quantity)
             }
